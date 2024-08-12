@@ -23,6 +23,10 @@ function AddTransactionForm({transactions,setTransactions,setFilteredTransaction
 
   function handleSubmit(event){
     event.preventDefault();
+    if (!formData.date || !formData.description || !formData.category || !formData.amount) {
+      alert("Please fill out all fields before submitting the form.");
+      return;
+    }
     const newId=(Object.keys(transactions).length + 1).toString();
 
     const newTransaction={
